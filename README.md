@@ -1,26 +1,36 @@
 # LinearAlgebra-ML
 
-Bibliothèque Java d'algèbre linéaire pour le Machine Learning.
+A Java library for linear algebra dedicated to Machine Learning applications.
 
-## Fonctionnalités
+## Features
 
-- Décomposition LU
-- Décomposition QR
-- (à venir : SVD, valeurs propres, régression linéaire)
+    ✅ LU Decomposition - Solve linear systems and compute matrix inverses
+
+    ✅ QR Decomposition - Orthogonal matrix factorization for least squares problems
+
+    ✅ SVD (Singular Value Decomposition) - Matrix factorization for dimensionality reduction and pseudoinverse computation
+
+    ✅ Eigenvalues and Eigenvectors - Compute eigenvalues and eigenvectors for square matrices
+
+    ✅ (coming soon : Apache Spark, Linear regression, cases studies)
 
 ## Structure
 
-src/_decomposition_lu_001/ → classes Java pour LU
+src/_decomposition_lu_001/ → Java classes for LU
 
-src/_decomposition_qr_001/ → classes Java pour QR
+src/_decomposition_qr_001/ → Java classes for QR
 
-## Compilation avec Maven
+src/_decomposition_svd_001/ → Java classes for SVD
+
+eigenvalues, eigenvectors
+
+## Compilation with Maven
 
 mvn clean compile
 
 mvn test
 
-## Auteur
+## Author
 
 **souheilredjeb**
 
