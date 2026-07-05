@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.ScatterChart?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+
+<VBox xmlns="http://javafx.com/javafx/17" 
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.linsolve.illustrated.wirebond.controller.RegressionController"
+      spacing="10" prefWidth="1000" prefHeight="700">
+    
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    
+    <HBox spacing="10">
+        <Button fx:id="computeButton" text="Compute Regression" 
+                onAction="#handleCompute" prefWidth="150"/>
+        <ProgressBar fx:id="progressBar" prefWidth="200"/>
+        <Label fx:id="statusLabel" text="Ready"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Exit" onAction="#handleExit"/>
+    </HBox>
+    
+    <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+        <!-- Left: Table -->
+        <VBox spacing="5">
+            <Label text="Comparison Results" style="-fx-font-weight: bold;"/>
+            <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="methodColumn" text="Method" prefWidth="120"/>
+                    <TableColumn fx:id="beta0Column" text="β0" prefWidth="100"/>
+                    <TableColumn fx:id="beta1Column" text="β1" prefWidth="100"/>
+                    <TableColumn fx:id="beta2Column" text="β2" prefWidth="100"/>
+                    <TableColumn fx:id="rSquaredColumn" text="R²" prefWidth="80"/>
+                    <TableColumn fx:id="timeColumn" text="Time (ms)" prefWidth="80"/>
+                </columns>
+            </TableView>
+            
+            <TextArea fx:id="detailsArea" prefHeight="150" 
+                      promptText="Detailed results will appear here..."/>
+        </VBox>
+        
+        <!-- Right: Charts -->
+        <VBox spacing="5">
+            <Label text="Visualizations" style="-fx-font-weight: bold;"/>
+            <ScatterChart fx:id="scatterChart" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <NumberAxis label="Wire Length"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Pull Strength"/>
+                </yAxis>
+            </ScatterChart>
+            <LineChart fx:id="lineChart" VBox.vgrow="ALWAYS">
+                <xAxis>
+                    <NumberAxis label="Observation"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Pull Strength"/>
+                </yAxis>
+            </LineChart>
+        </VBox>
+    </SplitPane>
+</VBox>
